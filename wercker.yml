@@ -3,7 +3,8 @@
 # Read more about containers on our dev center
 # http://devcenter.wercker.com/docs/containers/index.html
 # box: volanja/docker-ansible
-box: ruby:2.2
+# box: ruby:2.2
+box: phusion/passenger-ruby22
 # You can also use services such as databases. Read more on our dev center:
 # http://devcenter.wercker.com/docs/services/index.html
 # services:
