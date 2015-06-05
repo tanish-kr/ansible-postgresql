@@ -25,7 +25,7 @@ build:
         name: ansible playbook to local
         code: |
           cd $WERCKER_SOURCE_DIR
-          sudo ansible-playbook -v main.yml -i host -c local
+          ansible-playbook -v main.yml -i host -c local
 
     - script:
         name: exec serverspec
