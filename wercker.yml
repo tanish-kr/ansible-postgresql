@@ -24,12 +24,14 @@ build:
         name: yum update
         code: sudo yum update
 
-    - script: ansible playbook to local
+    - script:
+        name: ansible playbook to local
         code: |
           cd $WORKER_SOURCE_DIR
           sudo ansible-playbook -v main.yml -i host -c local
 
-    - script: exec serverspec
+    - script:
+        name: exec serverspec
         code: |
           cd $WORKER_SOURCE_DIR
           rake spec:localhost
