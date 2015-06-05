@@ -2,7 +2,8 @@
 # Docker Hub https://registry.hub.docker.com/_/debian/
 # Read more about containers on our dev center
 # http://devcenter.wercker.com/docs/containers/index.html
-box: volanja/docker-ansible
+# box: volanja/docker-ansible
+box: ruby:2.2
 # You can also use services such as databases. Read more on our dev center:
 # http://devcenter.wercker.com/docs/services/index.html
 # services:
@@ -22,13 +23,20 @@ build:
   steps:
 
     - script:
-        name: ansible playbook to local
+        name: install vagrant
         code: |
-          cd $WERCKER_SOURCE_DIR
-          ansible-playbook -v main.yml -i host -c local
+          wget https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.2_x86_64.deb
+          sudo dpkg --install vagrant_1.7.2_x86_64.deb
+
+    # - script:
+    #     name: ansible playbook to local
+    #     code: |
+    #       cd $WERCKER_SOURCE_DIR
+    #       ansible-playbook -v main.yml -i host -c local
 
     - script:
         name: exec serverspec
         code: |
           cd $WERCKER_SOURCE_DIR
-          rake spec:localhost
+          rake spec:_default
+          # rake spec:localhost
