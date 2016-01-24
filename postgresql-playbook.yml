@@ -1,0 +1,11 @@
+---
+- hosts: all
+  sudo: yes
+  user: '{{ user }}'
+  vars:
+    dbuser: '{{ dbuser }}'
+    dbpass: '{{ dbpass }}'
+    dbname: '{{ dbname }}'
+
+  roles:
+    - postgresql

@@ -1,0 +1,4 @@
+version: "9.5"
+rpmurl:
+  redhat: "http://yum.postgresql.org/{{ version }}/redhat/rhel-7-x86_64/pgdg-centos95-{{ version }}-2.noarch.rpm"
+package_name: "postgresql95"
